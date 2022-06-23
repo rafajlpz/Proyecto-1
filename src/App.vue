@@ -5,6 +5,7 @@
       <router-link to="/inicio">Inicio</router-link> |
       <router-link to="/sesion">Iniciar sesion</router-link> |
       <router-link to="/registro">Registro</router-link> |
+       <button @click="userStore.cerrarSesion">Cerrar sesion</button> |
     </nav>
     <router-view></router-view>
   </div>
@@ -15,6 +16,8 @@
 </template>
 
 <script setup>
+import { useUserStore } from './stores/user';
+const userStore = useUserStore();
 
 </script>
 
