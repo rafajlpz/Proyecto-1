@@ -12,12 +12,14 @@ import router from "../router"
 export const useUserStore = defineStore("userStore", {
   state: () => ({
     userData: null,
+    cargandoUser: false
   }),
 
   // -> Con los action modificamos con funciones los datos principales del state <- //
   actions: {
     // -> Funcion para crear usuario autentificacion firebase <- //
     async registrarUsuario(email, password) {
+      this.cargandoUser = true
       try {
         // -> Destructuramos (el objeto tiene muchas posibilidades), sacamos la propiedad user, que seria la respuesta <-
         const { user } = await createUserWithEmailAndPassword(
@@ -31,10 +33,13 @@ export const useUserStore = defineStore("userStore", {
         router.push("/inicio");
       } catch (error) {
         console.log(error);
+      } finally {
+        this.cargandoUser = false;
       }
     },
     // -> Funcion para uniciar sesion de usuario creado en Firebase o registrado anteriormente <- //
     async inicioSesion(email, password) {
+      this.cargandoUser = true
       try {
         const { user } = await signInWithEmailAndPassword(
           auth,
@@ -46,6 +51,8 @@ export const useUserStore = defineStore("userStore", {
         router.push("/inicio");
       } catch (error) {
         console.log(error);
+      } finally {
+        this.cargandoUser = false
       }
     },
     async cerrarSesion() {

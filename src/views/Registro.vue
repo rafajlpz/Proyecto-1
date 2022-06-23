@@ -25,7 +25,7 @@
           />
         </div>
         <br />
-        <button class="botones">Registrar</button>
+        <button class="botones" type="submit" :disabled="userStore.cargandoUser">Crear usuario</button>
         <br />
       </form>
     </div>
@@ -39,8 +39,8 @@ import { useUserStore } from "../stores/user";
 
 // -> Constantes o variables <- //
 const userStore = useUserStore();
-const email = ref("rafajlpz@prueba.es");
-const password = ref("1234");
+const email = ref("");
+const password = ref("");
 
 // -> Funcion para validar/enviar formulario <- //
 const enviarForm = async () => {

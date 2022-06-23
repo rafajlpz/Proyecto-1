@@ -25,8 +25,8 @@
           />
         </div>
         <br />
-        <button class="botones">Login</button>
-        <button class="botones" @click="userStore.cerrarSesion">Logout</button>
+        <button class="botones" type="submit" :disabled="userStore.cargandoUser">Login</button>
+        <button class="botones"  @click="userStore.cerrarSesion">Logout</button>
 
         <br />
       </form>
@@ -42,8 +42,8 @@ import { useUserStore } from "../stores/user";
 
 // -> Constantes o variables <- //
 const userStore = useUserStore();
-const email = ref("rafajlpz@prueba.es");
-const password = ref("1234");
+const email = ref("");
+const password = ref("");
 
 // -> Funcion para validar/enviar formulario <- //
 const enviarForm = async () => {
@@ -51,7 +51,7 @@ const enviarForm = async () => {
     return alert(`No se admiten campos vacios`);
   }
   if (password.value.length < 6) {
-    return alert(`Password muy debil`);
+    return alert(`Password incorrecta`);
   }
   try {
 
