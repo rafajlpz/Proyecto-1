@@ -10,11 +10,12 @@ import { auth } from "../hook/firebaseConfig";
 // -> Importamos el Router para poder usar el router.push() <- //
 import router from "../router";
 
+// -> Definimos nuestra tienda/store para que pueda ser accedido en todos los componentes <- //
 export const useUserStore = defineStore("userStore", {
   state: () => ({
     userData: null,
     cargandoUser: false,
-    cargandoSesion: false
+    cargandoSesion: false,
   }),
 
   // -> Con los action modificamos con funciones los datos principales del state <- //
@@ -70,7 +71,7 @@ export const useUserStore = defineStore("userStore", {
     },
     // -> Funcion que verifica si hay un usuario conectado y que pueda ver la ruta protegida, en este caso Inicio/Home <- //
     userActual() {
-      // -> Resuesta positiva(resovle), negativa(reject) <- //
+      // -> Resuesta positiva(resolve), negativa(reject) <- //
       return new Promise((resolve, reject) => {
         const unsuscribe = onAuthStateChanged(auth, (user) => {
           if (user) {

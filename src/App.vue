@@ -28,7 +28,8 @@ const userStore = useUserStore();
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   background: url(./assets/papel.jpg);
 }
 </style>

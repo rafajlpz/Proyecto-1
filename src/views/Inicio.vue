@@ -1,5 +1,5 @@
 <template>
-  <div class="main-home">
+  <div class="main-home">    
     <div class="sobremi">
       <h1>Sobre mi</h1>
       <p>
@@ -53,7 +53,14 @@
 <script setup>
 // -> Importaciones <- //
 import { useUserStore } from "../stores/user";
+import {useDatabaseStore} from "../stores/database"
+
+
 const userStore = useUserStore();
+const databaseStore = useDatabaseStore();
+
+databaseStore.getCampos();
+
 </script>
 
 <style scoped>
@@ -76,7 +83,6 @@ const userStore = useUserStore();
 }
 
 .sobremi {
-  overflow: auto;
   margin: auto;
   width: 95%;
   padding: 0.75em;
@@ -84,7 +90,6 @@ const userStore = useUserStore();
 }
 
 .lenguajes {
-  overflow: auto;
   grid-area: lenguajes;
   margin: auto;
   width: 95%;
@@ -92,7 +97,6 @@ const userStore = useUserStore();
 }
 
 .laboral {
-  overflow: auto;
   grid-area: laboral;
   margin: auto;
   height: 15rem;
@@ -101,7 +105,6 @@ const userStore = useUserStore();
 }
 
 .formacion {
-  overflow: scroll;
   overflow: -webkit-overflow-scrolling;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
