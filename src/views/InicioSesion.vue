@@ -86,12 +86,12 @@ const enviarForm = async () => {
 
 .inputs {
   width: 100%;
-  background: cornsilk;
+  background: rgba(174, 194, 194, 0.4);;
   display: flex;
   padding: 0.4rem;
   border-radius: 4px;
   margin-bottom: 1rem;
-  border: 1px solid orange;
+  border: 1px solid grey;
 }
 
 .uno {
@@ -105,9 +105,9 @@ const enviarForm = async () => {
   /* border-radius: 4px; */
   padding: 0.3rem;
   margin-right: 0.5rem;
-  border: 1px solid orange;
+  border: 1px solid grey;
   border-radius: 4px;
-  background: cornsilk;
+  background: rgba(174, 194, 194, 0.4);
 }
 
 .titulo-admin {

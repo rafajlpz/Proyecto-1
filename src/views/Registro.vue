@@ -7,22 +7,11 @@
       <form class="myForm" @submit.prevent="enviarForm" action="#" id="myForm">
         <div class="control">
           <label for="email"> Correo electronico </label>
-          <input
-            class="inputs"
-            type="email"
-            id="email"
-            v-model.trim="email"
-            required
-          />
+          <input class="inputs" type="email" id="email" v-model.trim="email" required />
         </div>
         <div class="control">
           <label for="password"> Contraseña </label>
-          <input
-            class="inputs uno"
-            type="password"
-            id="password"
-            v-model.trim="password"
-          />
+          <input class="inputs uno" type="password" id="password" v-model.trim="password" />
         </div>
         <br />
         <button class="botones" type="submit" :disabled="userStore.cargandoUser">Crear usuario</button>
@@ -82,12 +71,12 @@ const enviarForm = async () => {
 
 .inputs {
   width: 100%;
-  background: cornsilk;
+  background: rgba(174, 194, 194, 0.4);
   display: flex;
   padding: 0.4rem;
   border-radius: 4px;
   margin-bottom: 1rem;
-  border: 1px solid orange;
+  border: 1px solid grey
 }
 
 .uno {
@@ -98,9 +87,9 @@ const enviarForm = async () => {
   /* border-radius: 4px; */
   padding: 0.3rem;
   margin-right: 0.5rem;
-  border: 1px solid orange;
+  border: 1px solid grey;
   border-radius: 4px;
-  background: cornsilk;
+  background: rgba(174, 194, 194, 0.4);
 }
 
 .titulo-admin {
