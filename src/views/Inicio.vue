@@ -25,7 +25,7 @@
     </div>
 
     <div class="laboral">
-      <h3>Laboral</h3>
+      <h3 v-for="item of databaseStore.documents" :key="item.id">{{item.sobremi}}</h3>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto itaque
         autem magnam sint perspiciatis est impedit vero eum possimus totam!
@@ -58,8 +58,8 @@ import {useDatabaseStore} from "../stores/database"
 
 const userStore = useUserStore();
 const databaseStore = useDatabaseStore();
-
 databaseStore.getCampos();
+
 
 </script>
 
