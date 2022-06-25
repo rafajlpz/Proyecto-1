@@ -14,6 +14,7 @@ export const useUserStore = defineStore("userStore", {
   state: () => ({
     userData: null,
     cargandoUser: false,
+    cargandoSesion: false
   }),
 
   // -> Con los action modificamos con funciones los datos principales del state <- //
