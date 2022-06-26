@@ -32,11 +32,7 @@
       </ul>
     </div>
 
-    <div
-      class="formacion"
-      v-for="item of databaseStore.documents"
-      :key="item.id"
-    >
+    <div class="formacion" v-for="item of databaseStore.documents" :key="item.id">
       <h3 class="titulos">Formacion</h3>
       <ul>
         <li>{{ item.titulo1 }}</li>
@@ -62,6 +58,8 @@ databaseStore.getCampos();
 .main-home {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 23px;
+
   max-width: 62.5rem;
   height: 100vh;
   -webkit-box-shadow: 44px 29px 23px 6px rgba(161, 156, 161, 0.62);
@@ -78,10 +76,10 @@ databaseStore.getCampos();
 }
 
 .sobremi {
+  grid-area: sobremi;
   margin: auto;
   width: 95%;
   padding: 0.75em;
-  grid-area: sobremi;
 }
 
 .lenguajes {
@@ -109,16 +107,9 @@ databaseStore.getCampos();
 
 .titulos {
   display: flex;
-  justify-content: center;
-
-  
-  
-
- text-decoration: underline;
- 
- 
-
   padding: 1rem;
+  justify-content: center;
+  text-decoration: underline;
 }
 
 .icons {
@@ -140,8 +131,8 @@ databaseStore.getCampos();
   height: 105px;
 } */
 
-ul{
-  padding: .5rem;
+ul {
+  padding: 0.5rem;
 }
 
 p {

@@ -7,27 +7,15 @@
       <form class="myForm" @submit.prevent="enviarForm" action="#" id="myForm">
         <div class="control">
           <label for="email">Cuenta usuario</label>
-          <input
-            class="inputs uno"
-            type="email"
-            id="email"
-            v-model.trim="email"
-            required
-          />
+          <input class="inputs uno" type="email" id="email" v-model.trim="email" required />
         </div>
         <div class="control">
           <label for="password"> Contraseña </label>
-          <input
-            class="inputs dos"
-            type="password"
-            id="password"
-            v-model.trim="password"
-          />
+          <input class="inputs dos" type="password" id="password" v-model.trim="password" />
         </div>
         <br />
         <button class="botones" type="submit" :disabled="userStore.cargandoUser">Login</button>
-        <button class="botones"  @click="userStore.cerrarSesion">Logout</button>
-
+        <button class="botones" @click="userStore.cerrarSesion">Logout</button>
         <br />
       </form>
     </div>
@@ -68,7 +56,7 @@ const enviarForm = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 23px;
 }
 
 .caja-formulario {
@@ -86,7 +74,8 @@ const enviarForm = async () => {
 
 .inputs {
   width: 100%;
-  background: rgba(174, 194, 194, 0.4);;
+  background: rgba(174, 194, 194, 0.4);
+  ;
   display: flex;
   padding: 0.4rem;
   border-radius: 4px;
@@ -97,6 +86,7 @@ const enviarForm = async () => {
 .uno {
   margin-left: 16px;
 }
+
 .dos {
   margin-left: 10px;
 }

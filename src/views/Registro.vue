@@ -53,7 +53,7 @@ const enviarForm = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 23px;
 }
 
 .caja-formulario {
