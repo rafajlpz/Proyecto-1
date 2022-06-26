@@ -22,6 +22,8 @@
 <script setup>
 import { useUserStore } from "./stores/user";
 const userStore = useUserStore();
+
+userStore.userActual();
 </script>
 
 <style>
@@ -33,5 +35,7 @@ const userStore = useUserStore();
 
 body {
   background: url(./assets/papel.jpg);
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size:larger;
 }
 </style>

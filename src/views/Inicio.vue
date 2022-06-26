@@ -3,37 +3,47 @@
   <span v-if="databaseStore.cargandoDoc">Cargando datos...</span>
   <div class="main-home" v-else>
     <div class="sobremi">
-      <h1>Sobre mi</h1>
+      <!-- <img class="alpaca" src="../assets/alpaquita.jpg" alt="avatar"> -->
+      <h1 class="titulos">Sobre mi</h1>
       <p v-for="item of databaseStore.documents" :key="item.id">
         {{ item.sobremi }}
       </p>
     </div>
 
     <div class="lenguajes">
-      <h2>Lenguajes</h2>
+      <h2 class="titulos">Lenguajes</h2>
+      <ul class="icons">
+        <li><img src="../assets/icons8-html-5-48.png" alt="html" /></li>
+        <li><img src="../assets/icons8-css3-48.png" alt="css" /></li>
+        <li><img src="../assets/icons8-javascript-48.png" alt="js" /></li>
+        <li><img src="../assets/icons8-vue-js-48.png" alt="vue" /></li>
+        <li><img src="../assets/icons8-git-48.png" alt="git" /></li>
+      </ul>
       <p v-for="item of databaseStore.documents" :key="item.id">
         {{ item.lenguajes }}
       </p>
     </div>
 
-    <div class="laboral">
-      <h3>Laboral</h3>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto itaque
-        autem magnam sint perspiciatis est impedit vero eum possimus totam!
-        Dolorem quos excepturi error voluptatem aut tempore officia quam?
-        Maiores eveniet, corrupti odit eos asperiores culpa adipisci, eligendi
-        reprehenderit ut tempora tempore id, sunt saepe cum nulla. Odio, quaerat
-        voluptas?
-      </p>
+    <div class="laboral" v-for="item of databaseStore.documents" :key="item.id">
+      <h3 class="titulos">Laboral</h3>
+      <ul>
+        <li>{{ item.laboral1 }}</li>
+        <li>{{ item.laboral2 }}</li>
+      </ul>
     </div>
 
-    <div class="formacion">
-      <h3>Formacion</h3>
-      <p v-for="item in databaseStore.documents">
-        {{ item.titulo1 }} {{ item.titulo2 }} {{ item.titulo3 }}
-        {{ item.titulo4 }}
-      </p>
+    <div
+      class="formacion"
+      v-for="item of databaseStore.documents"
+      :key="item.id"
+    >
+      <h3 class="titulos">Formacion</h3>
+      <ul>
+        <li>{{ item.titulo1 }}</li>
+        <li>{{ item.titulo2 }}</li>
+        <li>{{ item.titulo3 }}</li>
+        <li>{{ item.titulo4 }}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -90,14 +100,51 @@ databaseStore.getCampos();
 }
 
 .formacion {
-  overflow: -webkit-overflow-scrolling;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
   grid-area: formacion;
   margin: auto;
   height: 15rem;
   width: 95%;
   padding: 0.75em;
+}
+
+.titulos {
+  display: flex;
+  justify-content: center;
+
+  
+  
+
+ text-decoration: underline;
+ 
+ 
+
+  padding: 1rem;
+}
+
+.icons {
+  display: flex;
+  list-style: none;
+
+  justify-content: center;
+}
+
+.icons li {
+  padding: 2rem;
+}
+
+/* .alpaca{
+  float:inline;
+  border: 1px solid #ddd;
+    padding: 0.25rem;
+  border-radius: 2%;
+  height: 105px;
+} */
+
+ul{
+  padding: .5rem;
+}
+
+p {
+  padding: 0.5rem;
 }
 </style>

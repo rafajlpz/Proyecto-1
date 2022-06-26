@@ -21,6 +21,7 @@ const requiereAuth = async (to, from, next) => {
 };
 
 const routes = [
+  { path: "/", component: Registro},
   { path: "/inicio", component: Inicio, beforeEnter: requiereAuth },
   { path: "/registro", component: Registro },
   { path: "/sesion", component: InicioSesion },
