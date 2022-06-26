@@ -1,5 +1,5 @@
 // -> Importaciones <- //
-import { collection, getDocs, query } from "firebase/firestore/lite";
+import { addDoc, collection, getDocs, query } from "firebase/firestore/lite";
 import { defineStore } from "pinia";
 import { db } from "../hook/firebaseConfig";
 import { auth } from "../hook/firebaseConfig";
@@ -36,6 +36,23 @@ export const useDatabaseStore = defineStore("database", {
         console.log(error);
       } finally {
         this.cargandoDoc = false;
+      }
+    },
+    async agregarCampos(nombre, ciudad) {
+      try {
+        const objetoDoc = {
+          nombre: nombre,
+          ciudad: ciudad     
+        };
+        console.log(objetoDoc)
+        const docRef = await addDoc(collection(db, "perfil"), objetoDoc);
+        this.documents.push({
+          ...objetoDoc,
+          id: docRef.id
+        })
+      } catch (error) {
+        console.log(error);
+      } finally {
       }
     },
   },

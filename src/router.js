@@ -3,6 +3,7 @@ import { useUserStore } from "./stores/user";
 import Inicio from "./views/Inicio.vue";
 import Registro from "./views/Registro.vue";
 import InicioSesion from "./views/InicioSesion.vue";
+import Valoraciones from "./views/Valoraciones.vue"
 
 // -> Antes de que entre a la ruta pasa por aqui con 'beforeEnter' <- //
 const requiereAuth = async (to, from, next) => {
@@ -23,6 +24,8 @@ const routes = [
   { path: "/inicio", component: Inicio, beforeEnter: requiereAuth },
   { path: "/registro", component: Registro },
   { path: "/sesion", component: InicioSesion },
+  { path: "/enviar", component: Valoraciones },
+  
 ];
 
 const router = createRouter({

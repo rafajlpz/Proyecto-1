@@ -31,7 +31,8 @@
     <div class="formacion">
       <h3>Formacion</h3>
       <p v-for="item in databaseStore.documents">
-        {{item.titulo1}} {{item.titulo2}} {{item.titulo3}} {{item.titulo4}}
+        {{ item.titulo1 }} {{ item.titulo2 }} {{ item.titulo3 }}
+        {{ item.titulo4 }}
       </p>
     </div>
   </div>
