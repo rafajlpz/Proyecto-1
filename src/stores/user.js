@@ -9,6 +9,8 @@ import { defineStore } from "pinia";
 import { auth } from "../hook/firebaseConfig";
 // -> Importamos el Router para poder usar el router.push() <- //
 import router from "../router";
+// -> Importamos otro store * Comunicacion entre dos archivos diferentes <- //
+import { useDatabaseStore } from "./database";
 
 // -> Definimos nuestra tienda/store para que pueda ser accedido en todos los componentes <- //
 export const useUserStore = defineStore("userStore", {
@@ -60,6 +62,10 @@ export const useUserStore = defineStore("userStore", {
     },
     // -> Funcion que cierra la sesion del usuario de Firebase loggeado. <- //
     async cerrarSesion() {
+      // -> Usamos la tienda importada <- //
+      const databaseStore = useDatabaseStore();
+      // -> Reseteo del store <- //
+      databaseStore.$reset();
       try {
         await signOut(auth);
         this.userData = null;

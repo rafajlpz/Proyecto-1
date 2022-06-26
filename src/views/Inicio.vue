@@ -1,31 +1,23 @@
 <template>
-  <div class="main-home">    
+  <!-- Loader que se ejecuta mientras cargan los datos de Firebase -->
+  <span v-if="databaseStore.cargandoDoc">Cargando datos...</span>
+  <div class="main-home" v-else>
     <div class="sobremi">
       <h1>Sobre mi</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto itaque
-        autem magnam sint perspiciatis est impedit vero eum possimus totam!
-        Dolorem quos excepturi error voluptatem aut tempore officia quam?
-        Maiores eveniet, corrupti odit eos asperiores culpa adipisci, eligendi
-        reprehenderit ut tempora tempore id, sunt saepe cum nulla. Odio, quaerat
-        voluptas?
+      <p v-for="item of databaseStore.documents" :key="item.id">
+        {{ item.sobremi }}
       </p>
     </div>
 
     <div class="lenguajes">
       <h2>Lenguajes</h2>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto itaque
-        autem magnam sint perspiciatis est impedit vero eum possimus totam!
-        Dolorem quos excepturi error voluptatem aut tempore officia quam?
-        Maiores eveniet, corrupti odit eos asperiores culpa adipisci, eligendi
-        reprehenderit ut tempora tempore id, sunt saepe cum nulla. Odio, quaerat
-        voluptas?
+      <p v-for="item of databaseStore.documents" :key="item.id">
+        {{ item.lenguajes }}
       </p>
     </div>
 
     <div class="laboral">
-      <h3 v-for="item of databaseStore.documents" :key="item.id">{{item.sobremi}}</h3>
+      <h3>Laboral</h3>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto itaque
         autem magnam sint perspiciatis est impedit vero eum possimus totam!
@@ -38,13 +30,8 @@
 
     <div class="formacion">
       <h3>Formacion</h3>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto itaque
-        autem magnam sint perspiciatis est impedit vero eum possimus totam!
-        Dolorem quos excepturi error voluptatem aut tempore officia quam?
-        Maiores eveniet, corrupti odit eos asperiores culpa adipisci, eligendi
-        reprehenderit ut tempora tempore id, sunt saepe cum nulla. Odio, quaerat
-        voluptas?
+      <p v-for="item in databaseStore.documents">
+        {{item.titulo1}} {{item.titulo2}} {{item.titulo3}} {{item.titulo4}}
       </p>
     </div>
   </div>
@@ -53,14 +40,11 @@
 <script setup>
 // -> Importaciones <- //
 import { useUserStore } from "../stores/user";
-import {useDatabaseStore} from "../stores/database"
-
+import { useDatabaseStore } from "../stores/database";
 
 const userStore = useUserStore();
 const databaseStore = useDatabaseStore();
 databaseStore.getCampos();
-
-
 </script>
 
 <style scoped>
